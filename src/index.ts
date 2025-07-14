@@ -1,3 +1,2 @@
-import type { induceByRouteSubgraph } from "./induceByRouteSubgraph";
-
-export type { induceByRouteSubgraph };
+export { induceByRouteSubgraph } from "./induceByRouteSubgraph";
+export type { Graph, Node } from "./types/graph";
