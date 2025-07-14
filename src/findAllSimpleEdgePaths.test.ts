@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { findAllSimplePaths } from "./findAllSimplePaths";
+import { findAllSimpleEdgePaths } from "./findAllSimpleEdgePaths";
 import type { Graph } from "./types/graph";
 
-describe("findAllSimplePaths", () => {
+describe("findAllSimpleEdgePaths", () => {
 	it("should find all simple paths in a directed graph", () => {
 		/*
 			s─┬►a─┬►t
@@ -17,10 +17,16 @@ describe("findAllSimplePaths", () => {
 			},
 		};
 
-		const paths = findAllSimplePaths(graph, "s", "t");
+		const paths = findAllSimpleEdgePaths(graph, "s", "t");
 		expect(paths).toEqual([
-			["s", "a", "t"],
-			["s", "b", "t"],
+			[
+				["s", "a"],
+				["a", "t"],
+			],
+			[
+				["s", "b"],
+				["b", "t"],
+			],
 		]);
 	});
 
@@ -38,7 +44,7 @@ describe("findAllSimplePaths", () => {
 			},
 		};
 
-		const paths = findAllSimplePaths(graph, "s", "t");
+		const paths = findAllSimpleEdgePaths(graph, "s", "t");
 		expect(paths).toEqual([]);
 	});
 
@@ -56,7 +62,12 @@ describe("findAllSimplePaths", () => {
 			},
 		};
 
-		const paths = findAllSimplePaths(graph, "s", "t");
-		expect(paths).toEqual([["s", "a", "t"]]);
+		const paths = findAllSimpleEdgePaths(graph, "s", "t");
+		expect(paths).toEqual([
+			[
+				["s", "a"],
+				["a", "t"],
+			],
+		]);
 	});
 });

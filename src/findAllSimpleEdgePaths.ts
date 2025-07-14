@@ -1,7 +1,9 @@
 import type { Graph, Node } from "./types/graph";
-import type { Path } from "./types/path";
 
-export const findAllSimplePaths = (
+type Edge = [Node, Node];
+type Path = Edge[];
+
+export const findAllSimpleEdgePaths = (
 	graph: Graph,
 	source: Node,
 	sink: Node,
@@ -11,7 +13,6 @@ export const findAllSimplePaths = (
 	const paths: Path[] = [];
 
 	const dfs = (currentNode: Node) => {
-		currentPath.push(currentNode);
 		visited.add(currentNode);
 
 		if (currentNode === sink) {
@@ -19,6 +20,7 @@ export const findAllSimplePaths = (
 		} else {
 			for (const nextNode of graph.edges[currentNode]) {
 				if (!visited.has(nextNode)) {
+					currentPath.push([currentNode, nextNode]);
 					dfs(nextNode);
 				}
 			}
