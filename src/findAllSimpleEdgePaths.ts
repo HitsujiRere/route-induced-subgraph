@@ -1,16 +1,16 @@
 import type { Graph, Node } from "./types/graph";
 
-type Edge = [Node, Node];
-type Path = Edge[];
+export type Edge = [Node, Node];
+export type EdgePath = Edge[];
 
 export const findAllSimpleEdgePaths = (
 	graph: Graph,
 	source: Node,
 	sink: Node,
-): Path[] => {
-	const currentPath: Path = [];
+): EdgePath[] => {
+	const currentPath: EdgePath = [];
 	const visited = new Set<Node>();
-	const paths: Path[] = [];
+	const paths: EdgePath[] = [];
 
 	const dfs = (currentNode: Node) => {
 		visited.add(currentNode);
