@@ -1,5 +1,5 @@
 {
-	"name": "series-parallel-graph",
+	"name": "route-induced-subgraph",
 	"version": "1.0.0",
 	"description": "",
 	"main": "./dist/index.js",
